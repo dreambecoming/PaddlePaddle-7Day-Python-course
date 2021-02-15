@@ -1,4 +1,4 @@
-# 百度飞桨领航团零基础Python速成营 课程总结1
+# 百度飞桨领航团零基础Python速成营 课程总结3
 ![paddlepaddle](https://paddlepaddle-org-cn.cdn.bcebos.com/paddle-site-front/favicon-128.png  "百度logo")
 
 [课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073) `：https://aistudio.baidu.com/aistudio/course/introduce/7073`  
@@ -7,9 +7,9 @@
 
 ****
 ## 目录
-* [函数（Function）](#函数（Function）)
-* [模块（Module）](#模块（Module）)
-* [作业三：Python函数基础（大作业）](#作业三：Python函数基础（大作业）)
+* [函数（Function）](#函数Function)
+* [模块（Module）](#模块Module)
+* [作业三：Python函数基础（大作业）](#作业三Python函数基础大作业)
 
 
 # 课节3: Python函数基础
