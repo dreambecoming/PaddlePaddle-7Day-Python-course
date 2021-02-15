@@ -402,13 +402,13 @@ class Child(Father,Mother):
 child1 = Child()
 
 #代码4，通过child调用父类的smart方法
-child1.talk()
+child1.smart()
 
 #代码5，通过child打印父类的color属性
 print(child1.color)
 ```
 输出：
 ```
----爸爸的表达能力---
+---妈妈聪明的头脑---
 black
 ```
