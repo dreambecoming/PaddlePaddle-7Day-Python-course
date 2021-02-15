@@ -1,11 +1,11 @@
 # 百度飞桨领航团零基础Python速成营 课程总结1
 
 
-	[课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073)：https://aistudio.baidu.com/aistudio/course/introduce/7073
+[课程链接] (https://aistudio.baidu.com/aistudio/course/introduce/7073)：https://aistudio.baidu.com/aistudio/course/introduce/7073
 
-	[飞桨官网](https://www.paddlepaddle.org.cn/)：https://www.paddlepaddle.org.cn/	![paddlepaddle]https://paddlepaddle-org-cn.cdn.bcebos.com/paddle-site-front/favicon-128.png
-
-	[推荐学习网站](https://www.runoob.com/python3/python3-tutorial.html)：https://www.runoob.com/python3/python3-tutorial.html
+[飞桨官网](https://www.paddlepaddle.org.cn/)：https://www.paddlepaddle.org.cn/	
+![paddlepaddle](https://paddlepaddle-org-cn.cdn.bcebos.com/paddle-site-front/favicon-128.png  "百度logo")
+[推荐学习网站](https://www.runoob.com/python3/python3-tutorial.html)：https://www.runoob.com/python3/python3-tutorial.html
 
 ****
 ## 目录
@@ -38,7 +38,7 @@
  ## Python基础
  
 
- - **标识符**是由字符（A~Z 和 a~z）、下划线和数字组成，但第一个字符不能是数字。 标识符不能和 Python 中的保留字相同。 Python中的标识符中，不能包含空格、@、% 以及 $ 等特殊字符。 在 Python 中，标识符中的字母是严格区分大小写的。
+ - **标识符**是由字符`（A~Z 和 a~z）`、下划线和数字组成，但第一个字符不能是数字。 标识符不能和 Python 中的保留字相同。 Python中的标识符中，不能包含空格、@、% 以及 $ 等特殊字符。 在 Python 中，标识符中的字母是严格区分大小写的。
  &nbsp;
 
 - <center>表1. Python 运算符优先级和结合性一览表</center>
