@@ -1,9 +1,9 @@
 # 百度飞桨领航团零基础Python速成营 课程总结1
 ![paddlepaddle](https://paddlepaddle-org-cn.cdn.bcebos.com/paddle-site-front/favicon-128.png  "百度logo")
 
-		[课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073) `：https://aistudio.baidu.com/aistudio/course/introduce/7073`
-		[飞桨官网](https://www.paddlepaddle.org.cn/)`：https://www.paddlepaddle.org.cn/` 
-		[推荐学习网站](https://www.runoob.com/python3/python3-tutorial.html)`：https://www.runoob.com/python3/python3-tutorial.html`
+[课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073) `：https://aistudio.baidu.com/aistudio/course/introduce/7073`
+[飞桨官网](https://www.paddlepaddle.org.cn/)`：https://www.paddlepaddle.org.cn/` 
+[推荐学习网站](https://www.runoob.com/python3/python3-tutorial.html)`：https://www.runoob.com/python3/python3-tutorial.html`
 
 ****
 ## 目录
@@ -26,8 +26,8 @@
  - 计算机系统： 硬件：CPU、存储器、键盘鼠标、显示器。 
 
 		软件：
-        - 操作系统：（英语：Operating System，缩写：OS）是一组主管并控制计算机	操作、运用和运行硬件、软件资源和提供公共服务来组织用户交互的相互关	联的系统软件程序，同时也是计算机系统的内核与基石。）
-        - 应用程序：（英语：Application program）或应用软件（Application 	software），简称应用（app），是电脑软件的主要分类之一，是指为针对用户的某种特殊应用目的所撰写的计算机程序。
+        - 操作系统：（英语：Operating System，缩写：OS）是一组主管并控制计算机	操作、运用和运行硬件、软件资源和提供公共服务来组织用户交互的相互关联的系统软件程序，同时也是计算机系统的内核与基石。）
+        - 应用程序：（英语：Application program）或应用软件（Application software），简称应用（app），是电脑软件的主要分类之一，是指为针对用户的某种特殊应用目的所撰写的计算机程序。
  - 进制 
   
         - 二进制：二进制（binary）在数学和数字电路中指以2为基数的记数系统，以2为基数代表系统是二进位制的。 
@@ -37,8 +37,7 @@
  
 
  - **标识符**是由字符`（A~Z 和 a~z）`、下划线和数字组成，但第一个字符不能是数字。 标识符不能和 Python 中的保留字相同。 Python中的标识符中，不能包含空格、@、% 以及 $ 等特殊字符。 在 Python 中，标识符中的字母是严格区分大小写的。
- &nbsp;
-
+ 
 - <center>表1. Python 运算符优先级和结合性一览表</center>
 
 	| 运算符说明| Python运算符| 优先级 | 结合性 |优先级顺序|
@@ -63,14 +62,11 @@
 	|逻辑或	|or	|2	|左|`| `
 	|逗号运算符|	exp1, exp2	|1	|左|低
 
-&nbsp;
-
  - **Python数据类型**：数字（Number）、字符串（String）、列表（List）、元组（Tuple）、集合（Set）、字典（Dictionary）
 
  	- 不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）。 
 
 	 - 可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）。
-	 &nbsp;
 	  
 	**1. 数字**
 	
