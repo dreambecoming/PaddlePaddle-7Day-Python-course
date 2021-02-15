@@ -240,8 +240,8 @@ def obj_factory(name,filename):
 oa = obj_factory('oa','mywork/mark.txt')
 print(oa.name)
 ```
-```
 输出：
+```
 mark
 ```
 ## 多继承
@@ -270,8 +270,8 @@ child1.smart()
 print(child1.color)
 print(child1.height)
 ```
-```
 输出：
+```
 ---爸爸的表达能力---
 ---妈妈聪明的头脑---
 black
@@ -307,8 +307,8 @@ def print_rugby(athlete):
 print_rugby(loren)
 print_rugby(mark)
 ```
-```
 输出：
+```
 2011-11-3
 270
 3.59
@@ -352,8 +352,8 @@ mins(1,2)
 mul(1,2)
 div(1,2)
 ```
-```
 输出：
+```
 add was called
 (1, 2)
 3
