@@ -1,7 +1,9 @@
 # PaddlePaddle-7Day-Python-course
 personal course summary for Baidu AI's PaddlePaddle zero-based Python crash camp  in Jan. 2021.  
 official course discription: https://aistudio.baidu.com/aistudio/course/introduce/7073  
-2月4日-2月10日，每晚 19:30-21:30 直播讲解  
+
+2月4日-2月10日，每晚 19:30-21:30 直播讲解 
+
 课程目标：
   * 掌握python知识点  
   * 熟悉面向对象基本思想  
