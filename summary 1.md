@@ -1,8 +1,8 @@
 # 百度飞桨领航团零基础Python速成营 课程总结1
 ![paddlepaddle](https://paddlepaddle-org-cn.cdn.bcebos.com/paddle-site-front/favicon-128.png  "百度logo")
 
-[课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073) `：https://aistudio.baidu.com/aistudio/course/introduce/7073`
-[飞桨官网](https://www.paddlepaddle.org.cn/)`：https://www.paddlepaddle.org.cn/` 
+[课程链接](https://aistudio.baidu.com/aistudio/course/introduce/7073) `：https://aistudio.baidu.com/aistudio/course/introduce/7073`  
+[飞桨官网](https://www.paddlepaddle.org.cn/)`：https://www.paddlepaddle.org.cn/`   
 [推荐学习网站](https://www.runoob.com/python3/python3-tutorial.html)`：https://www.runoob.com/python3/python3-tutorial.html`
 
 ****
@@ -111,8 +111,6 @@
 	-  字典是一种映射类型，字典用{ }标识，它是一个无序的键(key):值(value)的集合。
 	- 列表是有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。
 	- 键(key)必须使用不可变类型。
-	
-&nbsp;
 
 - <center>表2. 数据类型转换</center>
 
@@ -181,8 +179,6 @@
 	break 语句跳出 for 和 while 的循环体。
 	continue 语句跳过当前循环块中的剩余语句，然后继续进行下一轮循环。
 	pass是空语句，是为了保持程序结构的完整性。不做任何事情，用作占位语句
-
-&nbsp;
 
 ## 作业一：Python编程基础
 按要求补全下列代码：
