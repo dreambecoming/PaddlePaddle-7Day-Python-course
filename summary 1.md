@@ -1,12 +1,19 @@
-@[TOC](百度飞桨领航团零基础Python速成营 课程总结1)
-&nbsp;
-课程链接：https://aistudio.baidu.com/aistudio/course/introduce/7073
-飞桨官网：https://www.paddlepaddle.org.cn/
-推荐学习网站：https://www.runoob.com/python3/python3-tutorial.html
-&nbsp;
+# 百度飞桨领航团零基础Python速成营 课程总结1
+
+
+	课程链接：https://aistudio.baidu.com/aistudio/course/introduce/7073
+
+	飞桨官网：https://www.paddlepaddle.org.cn/
+
+	推荐学习网站：https://www.runoob.com/python3/python3-tutorial.html
+
+****
+## 目录
+* [计算机基础](#计算机基础)
+* [Python基础](#Python基础)
+* [作业一：Python编程基础](#作业一：Python编程基础)
+
 # 课节1：Python计算基础及环境搭配搭建
-
-
 
 ## 计算机基础
 
@@ -313,3 +320,4 @@
 	55
 	```
 	
+	:sweat_smile:
