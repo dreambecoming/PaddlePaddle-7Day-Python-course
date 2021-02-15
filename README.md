@@ -6,4 +6,5 @@ official course discription: https://aistudio.baidu.com/aistudio/course/introduc
   * 掌握python知识点  
   * 熟悉面向对象基本思想  
   * 几行代码让图片唱起歌  
+  
   ![课程大纲](https://ai-studio-static-online.cdn.bcebos.com/ab909c9ae59743a6b6974847804e35905acd8c0e5e8645d7847abadd53f7acdc)
