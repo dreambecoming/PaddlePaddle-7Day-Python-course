@@ -12,6 +12,7 @@
 * [多态](#多态)
 * [多继承](#多继承)
 * [模块化](#模块化)
+* [装饰器](#装饰器)
 * [作业五：Python面向对象(下)](#作业五Python面向对象下)
   * 第一题
   * 第二题
@@ -278,14 +279,94 @@ black
 ```
 
 ## 模块化
-未完待续。。。
+```python
+import sys
+# 将模块athlete.py添加到模块搜索路径
+sys.path.append('mywork')
 
+# import athlete
+# print(dir(athlete))
 
+# 导入athlete模块，使用athlete模块下的所有代码
+from athlete import *
+```
+```python
+loren = get_coach_data('mywork/loren.txt')
+mark = get_coach_data('mywork/mark.txt')
 
+loren = Rugby(loren.pop(0),loren.pop(0),loren.pop(0),loren)
+mark = OtherAthlete(mark.pop(0),mark.pop(0),mark.pop(0),mark)
 
+def print_rugby(athlete):
 
+    print(athlete.name)
+    print(athlete.dob)
+    print(athlete.squat)
+    print(athlete.top3())
 
+print_rugby(loren)
+print_rugby(mark)
+```
+```
+输出：
+2011-11-3
+270
+3.59
+['4.11', '4.21', '4.21']
+mark
+2010-2-4
+300
+['3.11', '3.11', '3.23']
+```
+## 装饰器
+修改其他函数的功能的函数。
+```python
+from functools import wraps
+#使用了装饰器
+def mylog(func):
+    @wraps(func)
+    def with_logging(*args):
+        print(func.__name__+" was called")
+        print(args)
+        return func(*args)
+    return with_logging
 
+@mylog
+def add(a,b):
+    print(a+b)
+
+@mylog
+def mins(a,b):
+    print(a-b)
+
+@mylog
+def mul(a,b):
+    print(a*b)
+
+@mylog
+def div(a,b):
+    print(a/b)
+
+add(1,2)
+mins(1,2)
+mul(1,2)
+div(1,2)
+```
+```
+输出：
+add was called
+(1, 2)
+3
+mins was called
+(1, 2)
+-1
+mul was called
+(1, 2)
+2
+div was called
+(1, 2)
+0.5
+```
 ## 作业五：Python面向对象(下)
 （注：此次作业代码皆取自课件，参考课件即可完成。）
 
