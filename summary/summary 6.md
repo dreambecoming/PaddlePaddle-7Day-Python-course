@@ -128,9 +128,9 @@ json()函数：
  
  表1. python 类型 json 类型转化对照表
  | Python      |      JSON      | 
-	|:-----------:| :-------------:|
-	| dict     	  |   object       |
-	|list, tuple  |     array      |
+ |:-----------:| :-------------:|
+ | dict        |   object       |
+ |list, tuple  |     array      |
  |str, unicode |     string     |
  |int, long, float  |     number    |
  |  True       |    true        |
@@ -326,7 +326,7 @@ background.join()
   ```
   
    
- ## 作业五：大作业
+ ## 作业六：大作业
 
 作业内容:
 
