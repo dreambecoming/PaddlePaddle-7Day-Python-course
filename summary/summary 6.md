@@ -9,8 +9,9 @@
 ## 目录
 * [文件处理模型](#文件处理模型)
 * [文件常用函数](#文件常用函数)
-* [JSON(JavaScript Object Notation)](#JSONJavaScript Object Notation)
+* [JSON(JavaScript Object Notation)](#jsonjavascript-object-notation)
 * [OS文件/目录](#OS文件目录)
+* [多线程](#多线程)
 * [作业五：大作业](#作业五大作业)
 
 # 课节6：文件操作及常用模块使用
@@ -51,7 +52,7 @@ sarah,2004-3-8,2:58,2.58,2:39,2-25,2-55,2:54,2.18,2:55,2:55
 
 mikey,2003-9-10,2:22,3.01,3:01,3.02,3:02,3.02,3:22,2.49,2:38
 ```
-数据出现问题
+例1. 数据出现问题
 ```python
 f = open('work/train_data_wrg.txt')
 for line in f:
@@ -198,10 +199,12 @@ with open('work/json.txt') as f:
  * os.listdir(path) 函数：返回path指定的文件夹包含的文件或文件夹的名字的列表。
  * os.system() 函数：将字符串转化成命令在服务器上运行。  
  path模块：from pathlib import Path
- * os.path.abspath(path)	函数：返回绝对路径。
- * os.path.exists(path)		函数：如果路径 path 存在，返回 True；如果路径 path 不存在，返回 False。
- * os.path.isdir(path) 函数：	判断路径是否为目录。
-
+ * os.path.abspath(path) 函数：返回绝对路径。
+ * os.path.exists(path)	 函数：如果路径 path 存在，返回 True；如果路径 path 不存在，返回 False。
+ * os.path.dirname(path) 函数：返回文件路径。
+ * os.path.isdir(path) 函数：判断路径是否为目录。
+ * os.path.isfile(path)	 函数：判断路径是否为文件。
+ 
  ```python
  import os
 #返回当前工作目录
@@ -258,7 +261,70 @@ os.path.isdir('/home/aistudio/work/today')
  ```
 True
  ```
- 
+ ## 多线程
+  * 线程模块：thread和threading
+  * run() 方法并不启动一个新线程，就是在主线程中调用了一个普通函数而已。
+  * start() 方法是启动一个子线程，线程名就是自己定义的name。
+  
+  例1. 压缩文件：
+  ```python
+  #制造数据
+with open('work/loren.txt','w+') as f:
+    for i in range(50000):
+        f.write('loren,2011-11-3,270,3.59,4.11,3:11,3:23,4-10,3-23,4:10,4.21,4-21')
+        f.write('\n')
+  ```
+  ```python
+  #使用进程的方式
+import zipfile
+
+print('压缩作业开始了，请您耐心等待...')
+
+infile = 'work/loren.txt'
+outfile = 'work/myarchive.zip'
+f = zipfile.ZipFile(outfile, 'w', zipfile.ZIP_DEFLATED)
+f.write(infile)
+f.close()
+
+print('压缩作业结束了，请问还需要帮您做什么呢？')
+  ```
+  输出：
+  ```
+压缩作业开始了，请您耐心等待...
+压缩作业结束了，请问还需要帮您做什么呢？
+  ```
+  
+  ```python
+  import threading, zipfile
+
+class AsyncZip(threading.Thread): #继承父类threading.Thread
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+    def run(self): #把要执行的代码写到run函数里面 线程在创建后会直接运行run函数
+        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print('压缩完成，您要的文件在:', self.outfile)
+
+background = AsyncZip('work/loren.txt', 'work/myarchive.zip') # 创建新线程
+
+print('压缩作业开始了，请您耐心等待...')
+background.start() # 开启线程
+print('我正在为您压缩，请问还需要帮您做什么呢？')
+background.join()
+  
+  ```
+  输出：
+  ```
+压缩作业开始了，请您耐心等待...
+我正在为您压缩，请问还需要帮您做什么呢？
+压缩完成，您要的文件在: work/myarchive.zip
+  ```
+  
+   
  ## 作业五：大作业
 
 作业内容:
