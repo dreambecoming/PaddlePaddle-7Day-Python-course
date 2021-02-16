@@ -9,9 +9,12 @@
 ## 目录
 * [文件处理模型](#文件处理模型)
 * [文件常用函数](#文件常用函数)
+* [JSON(JavaScript Object Notation)](#JSON(JavaScript Object Notation))
+* [OS文件/目录](#OS文件/目录)
 * [作业五：大作业](#作业五大作业)
 
 # 课节6：文件操作及常用模块使用
+
   * 输入，处理，输出。
 
     输入：读取4个队员的训练数据，读取4个文件
@@ -99,9 +102,15 @@ with open('work/train_data_wrg.txt') as f:
 
 ## 文件常用函数
  文件打开关闭：
+  * open() 函数：打开文件。file object = open(file_name [, access_mode][, buffering])
+  * close() 函数：关闭文件。fileObject.close()  
+ 
+ 文件读写
   * read() 函数：用于从文件读取指定的字节数。fileObject.read([size])
    参数size：从文件中读取的字节数，默认为 -1，表示读取整个文件。
   * readline() 函数：用于从文件读取整行，包括 "\n" 字符。fileObject.readline(size)
+  * write() 函数：将任何字符串写入一个打开的文件。fileObject.write(string)  
+  
  文件定位：
   * seek() 函数：用于移动文件读取指针到指定位置。fileObject.seek(offset[, whence])
     参数offset：开始的偏移量，也就是代表需要移动偏移的字节数。whence：可选，默认值为 0。表示要从哪个位置开始偏移；0代表从文件开头开始算起，1代表从当前位置开始算起，2代表从文件末尾算起。
@@ -114,7 +123,19 @@ json()函数：
  * json.loads	将已编码的 JSON 字符串解码为 Python 对象。
  * json.dump 将数据写入json文件中。
  * json.load 把文件打开，并把字符串变换为数据类型。
- * 不带s的用于操作文件，带s的用于数据类型的转换。
+ * 不带s的用于操作文件，带s的用于数据类型的转换。 
+ 
+ 表1. python 类型 json 类型转化对照表
+ | Python      |      JSON      | 
+	|:-----------:| :-------------:|
+	| dict     	  |   object       |
+	|list, tuple  |     array      |
+ |str, unicode |     string     |
+ |int, long, float  |     number    |
+ |  True       |    true        |
+ |  False       |    false      |
+ |  None       |    null        |
+ 
  ```python
  # dumps，python字典转json字符串
  import json
@@ -170,7 +191,73 @@ with open('work/json.txt') as f:
  ```
  {"name": "james", "dob": "2004-5-21", "times": ["2.34", "3:21", "2.34", "2.45", "3.01", "2:01", "2:01", "3:10", "2-22"]}
  ```
+ ## OS文件/目录
+ * os.getcwd() 函数：用于返回当前工作目录。
+ * os.chdir() 函数：用于改变当前工作目录到指定的路径。os.chdir(path)
+ * os.mkdir() 函数：用于以数字权限模式创建目录。默认的模式为 0777 (八进制)。os.mkdir(path[, mode])
+ * os.listdir(path) 函数：返回path指定的文件夹包含的文件或文件夹的名字的列表。
+ * os.system() 函数：将字符串转化成命令在服务器上运行。  
+ path模块：from pathlib import Path
+ * os.path.abspath(path)	函数：返回绝对路径。
+ * os.path.exists(path)		函数：如果路径 path 存在，返回 True；如果路径 path 不存在，返回 False。
+ * os.path.isdir(path) 函数：	判断路径是否为目录。
+
+ ```python
+ import os
+#返回当前工作目录
+current_path = os.getcwd()
+print('当前路径：'+current_path)
+ ```
+  输出：
+ ```
+ 当前路径：/home/aistudio
+ ```
  
+ ```python
+#改变当前工作目录
+os.chdir('/home/aistudio/work')
+#运行mkdir命令
+os.system('mkdir today')
+ ```
+  输出：
+ ```
+ 0
+ ```
+ 
+  ```python
+from pathlib import Path
+#返回当前绝对路径
+abs_path = os.path.abspath('')
+print('abs_path：'+abs_path)
+#路径是否存在
+Path(abs_path).exists()
+ ```
+  输出：
+ ```
+ abs_path：/home/aistudio/work
+True
+ ```
+ 
+  ```python
+print('当前路径：'+os.getcwd())
+listdir = os.listdir()
+#返回当前路径下文件和文件夹名
+print(listdir)
+ ```
+  输出：
+ ```
+ 当前路径：/home/aistudio/work
+['json.txt', 'train_data_cor.txt', 'athlete.py', 'data.txt', 'train_data_wrg.txt', 'today']
+ ```
+ 
+  ```python
+#是否为文件夹
+os.path.isdir('/home/aistudio/work/today')
+ ```
+  输出：
+ ```
+True
+ ```
  
  ## 作业五：大作业
 
