@@ -342,7 +342,51 @@ stu4.txt 李同学,2021-8-10,29,'男',92,54,85,71,-91,68,77,68,95,95
 定义Student类，包括name、dob、age、gender和score属性，包括top3方法用来返回学生的最大的3个成绩（可重复）、sanitize方法用来将负的分数变为正的分数，负的分数可能是输入错误。声明stu_list对象组数用于存储所有的学生对象。最后输出所有的学生信息包括姓名、生日、年龄、性别、最高的3个分数。
 
 第一题的输出结果如下，供参考：
-！[输出参考结果](https://ai-studio-static-online.cdn.bcebos.com/2a1b5032bcc740b6a681e50497c2b94452f39a624a044ccd9718d2edd1269b06)
+！[输出参考结果](https://ai-studio-static-online.cdn.bcebos.com/2a1b5032bcc740b6a681e50497c2b94452f39a624a044ccd9718d2edd1269b06)  
+
+```python
+# 定义类
+class Student():
+    def __init__(self, name, dob, age, gender, score=[]):
+        self.name = name
+        self.dob = dob
+        self.age = age
+        self.gender = gender
+        self.score = score
+    def __str__(self):
+        return "姓名:%s  生日:%s 年龄: %s 性别: %s 分数:%s"%(self.name,self.dob,self.age,self.gender,self.top3())
+    def top3(self):
+        return sorted([self.sanitize(s) for s in self.score])[-3:]
+    def sanitize(self,s):
+        abs(s)
+        return (s) 
+            
+# 读取文件
+def readfile(Path):
+    with open(Path) as f:
+        for line in f:
+            data = line.strip().split(',')
+            return data
+
+# 列表初始化
+pathlist = ['work/stu1.txt', 'work/stu2.txt', 'work/stu3.txt', 'work/stu4.txt']
+stu_list = []
+
+# 读入创建对象
+for i in pathlist:
+    res = readfile(i)
+    stu_list.append(Student(res[0],res[1],res[2],res[3],[int(i) for i in res[4:]]))
+for i in stu_list:
+    print(i)
+```
+输出：
+```
+姓名:孙同学  生日:2020-5-21 年龄: 20 性别: '男' 分数:[77, 84, 92]
+姓名:赵同学  生日:2020-11-3 年龄: 24 性别: '女' 分数:[91, 91, 95]
+姓名:王同学  生日:2021-8-7 年龄: 25 性别: '男' 分数:[90, 100, 100]
+姓名:李同学  生日:2021-8-10 年龄: 29 性别: '男' 分数:[92, 95, 95]
+```
+
 ### 第二题
 数据格式如下：
 
@@ -353,4 +397,12 @@ stu6.txt 特长同学,2020-10-6,20,'女',230,76,48,82,88,92,58,-91,84,69,-68
 定义Spostudent、Artstudent为Student的子类，在子类的属性里面新增了spe为特长分数。Spostudent包括的top3方法返回的是最低的3个得分（可重复），Artstudent包括top3方法返回的是最高的3个得分（可重复），最后使用多态的方式输出2个特长同学的姓名、生日、年龄、性别、分数、特长分。
 
 第二题的输出结果如下，供参考：
-！[输出参考结果](https://ai-studio-static-online.cdn.bcebos.com/585b454f8c2f45e1a08dc9a7fc7c017c596974c8ca91449298c2b72f88c99a03)
+！[输出参考结果](https://ai-studio-static-online.cdn.bcebos.com/585b454f8c2f45e1a08dc9a7fc7c017c596974c8ca91449298c2b72f88c99a03)  
+
+```python
+
+```
+输出：
+```
+
+```
