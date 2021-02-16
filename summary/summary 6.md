@@ -9,7 +9,7 @@
 ## 目录
 * [文件处理模型](#文件处理模型)
 * [文件常用函数](#文件常用函数)
-* [作业一：Python编程基础](#作业一Python编程基础)
+* [作业五：大作业](#作业五大作业)
 
 # 课节6：文件操作及常用模块使用
   * 输入，处理，输出。
@@ -98,12 +98,78 @@ with open('work/train_data_wrg.txt') as f:
 
 
 ## 文件常用函数
- * read() 函数：用于从文件读取指定的字节数。fileObject.read([size])
+ 文件打开关闭：
+  * read() 函数：用于从文件读取指定的字节数。fileObject.read([size])
    参数size：从文件中读取的字节数，默认为 -1，表示读取整个文件。
- * seek() 函数：用于移动文件读取指针到指定位置。fileObject.seek(offset[, whence])
-   参数offset：开始的偏移量，也就是代表需要移动偏移的字节数。whence：可选，默认值为 0。表示要从哪个位置开始偏移；0代表从文件开头开始算起，1代表从当前位置开始算起，2代表从文件末尾算起。
- * tell() 函数： 返回文件的当前位置，即文件指针当前位置。fileObject.tell()
+  * readline() 函数：用于从文件读取整行，包括 "\n" 字符。fileObject.readline(size)
+ 文件定位：
+  * seek() 函数：用于移动文件读取指针到指定位置。fileObject.seek(offset[, whence])
+    参数offset：开始的偏移量，也就是代表需要移动偏移的字节数。whence：可选，默认值为 0。表示要从哪个位置开始偏移；0代表从文件开头开始算起，1代表从当前位置开始算起，2代表从文件末尾算起。
+  * tell() 函数： 返回文件的当前位置，即文件指针当前位置。fileObject.tell()
  
+## JSON(JavaScript Object Notation) 
+导入 json 库：import json
+json()函数：
+ * json.dumps	将 Python 对象编码成 JSON 字符串。
+ * json.loads	将已编码的 JSON 字符串解码为 Python 对象。
+ * json.dump 将数据写入json文件中。
+ * json.load 把文件打开，并把字符串变换为数据类型。
+ * 不带s的用于操作文件，带s的用于数据类型的转换。
+ ```python
+ # dumps，python字典转json字符串
+ import json
+class Athlete(json.JSONEncoder):
+    def __init__(self,a_name,a_dob=None,a_times=[]):
+        self.name = a_name
+        self.dob = a_dob
+        self.times = a_times
+    def top3(self):
+        return sorted(set([self.sanitize(t) for t in self.times]))[0:3]
+    def sanitize(self,time_string):
+        if '-' in time_string:
+            splitter = '-'
+        elif ':' in time_string:
+            splitter = ':'
+        else:
+            return (time_string)
+        (mins,secs) = time_string.split(splitter)
+        return (mins+'.'+secs)
+
+
+with open('work/train_data_cor.txt') as f:
+    data = f.readline().strip().split(',')
+    ath = Athlete(data.pop(0),data.pop(0),data)
+    print(ath)
+    
+# dumps数据转化
+ath_json = json.dumps(ath.__dict__)
+# 字典
+print(ath.__dict__)
+# json 字符串
+print(ath_json)
+ ```
+ 输出：
+ ```
+ <__main__.Athlete object at 0x7f19d5064dd0>
+{'name': 'james', 'dob': '2004-5-21', 'times': ['2.34', '3:21', '2.34', '2.45', '3.01', '2:01', '2:01', '3:10', '2-22']}
+{"name": "james", "dob": "2004-5-21", "times": ["2.34", "3:21", "2.34", "2.45", "3.01", "2:01", "2:01", "3:10", "2-22"]}
+ ```
+ 
+ ```python
+ # dump，保存json到文件
+ with open('work/json.txt','w') as f:
+    json.dump(ath_json,f)
+ ```
+  ```python
+ # load，读取json文件内容
+with open('work/json.txt') as f:
+    ath = json.load(f)
+    print(ath)
+ ```
+ 输出：
+ ```
+ {"name": "james", "dob": "2004-5-21", "times": ["2.34", "3:21", "2.34", "2.45", "3.01", "2:01", "2:01", "3:10", "2-22"]}
+ ```
  
  
  ## 作业五：大作业
