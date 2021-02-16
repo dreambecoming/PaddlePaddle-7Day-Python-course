@@ -261,6 +261,36 @@ os.path.isdir('/home/aistudio/work/today')
  ```
 True
  ```
+ 例1. 输出路径下所有txt文件的文件名
+```python 
+ # 输出路径下所有txt文件的文件名
+import os
+
+def recur(path):
+    listdir = os.listdir(path)
+    for name in listdir:
+        next_path = path+'/'+name
+        if name[0] is '.' or name[0] is '_':
+            continue
+        
+        if os.path.isfile(next_path) :
+            # print(next_path + '=====isfile')
+            temp = name.split('.')
+            (filename,filetype) = (temp.pop(0),temp.pop(0))
+            if filetype == 'txt':
+                target.append(name)
+        else:
+            recur(next_path)
+
+path = '/home/aistudio/work'
+target = []
+recur(path)
+print(target)
+```
+输出：
+```
+['loren.txt', 'json.txt', 'train_data_cor.txt', 'data.txt', 'train_data_wrg.txt']
+```
  ## 多线程
   * 线程模块：thread和threading
   * run() 函数：不启动一个新线程，在主线程中调用了一个普通函数。
