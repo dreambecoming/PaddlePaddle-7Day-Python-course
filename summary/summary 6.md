@@ -9,8 +9,8 @@
 ## 目录
 * [文件处理模型](#文件处理模型)
 * [文件常用函数](#文件常用函数)
-* [JSON(JavaScript Object Notation)](#JSON(JavaScript Object Notation))
-* [OS文件/目录](#OS文件/目录)
+* [JSON(JavaScript Object Notation)](#JSONJavaScript Object Notation)
+* [OS文件/目录](#OS文件目录)
 * [作业五：大作业](#作业五大作业)
 
 # 课节6：文件操作及常用模块使用
