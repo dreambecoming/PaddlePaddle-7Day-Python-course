@@ -400,9 +400,39 @@ stu6.txt 特长同学,2020-10-6,20,'女',230,76,48,82,88,92,58,-91,84,69,-68
 ！[输出参考结果](https://ai-studio-static-online.cdn.bcebos.com/585b454f8c2f45e1a08dc9a7fc7c017c596974c8ca91449298c2b72f88c99a03)  
 
 ```python
+# 继承
+class Spostudent(Student):
+    def __init__(self,name,dob,age,gender,spe,score=[]):
+        self.spe = spe
+        Student.__init__(self,name,dob,age,gender,score)
+    def __str__(self):
+        return "姓名:%s  生日:%s 年龄: %s 性别: %s 分数:%s 特长分:%s"%(self.name,self.dob,self.age,self.gender,self.top3(), self.spe)    
+    def top3(self):
+        return sorted([self.sanitize(s) for s in self.score])[0:3]
+        
+class Artstudent(Student):
+    def __init__(self,name,dob,age,gender,spe,score=[]):
+        self.spe = spe
+        Student.__init__(self,name,dob,age,gender,score)
+        
+    def __str__(self):
+        return "姓名:%s  生日:%s 年龄: %s 性别: %s 分数:%s 特长分:%s"%(self.name,self.dob,self.age,self.gender,self.top3(), self.spe)
+    # 最高的3个得分
+    def top3(self):
+        return sorted([self.sanitize(s) for s in self.score])[-3:]
+spo = 'work/stu5.txt'
+art = 'work/stu6.txt'
 
+# 读取对象
+res = readFile(spo)
+spo = Spostudent(res[0],res[1],res[2],res[3],res[4],[int(i) for i in res[5:]])
+print(spo)
+res = readFile(art)
+art = Artstudent(res[0],res[1],res[2],res[3],res[4],[int(i) for i in res[5:]])
+print(art) 
 ```
 输出：
 ```
-
+姓名:特长同学  生日:2020-10-5 年龄: 20 性别: '男' 分数:[-91, -91, 56] 特长分:180
+姓名:特长同学  生日:2020-10-6 年龄: 20 性别: '女' 分数:[77, 84, 92] 特长分:230
 ```
