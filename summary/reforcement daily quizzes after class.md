@@ -13,6 +13,12 @@
     * [问题3](#问题3-1)
     * [问题4](#问题4-1)
     * [问题5](#问题5-1)
+ * [第三天](#第三天)
+    * [问题1](#问题1-2)
+    * [问题2](#问题2-2)
+    * [问题3](#问题3-2)
+    * [问题4](#问题4-2)
+    * [问题5](#问题5-2)
     
 ## 第一天
 ***
@@ -475,4 +481,192 @@ def printValue(s1,s2):
         print(s2)
         
 printValue("one","three")
+```
+## 第三天
+***
+### 问题1
+定义一个函数，该函数可以生成一个列表，其中值是介于1到20之间的数字的平方（包含1、20）。该函数需要打印列表中前5个元素以外的所有值。
+***
+自己尝试：
+```python
+#提示：使用**运算符可获取数字的幂。使用range（）进行循环。使用list.append（）将值添加到列表中。使用[n1：n2]分割列表
+def q1():
+    lis=[]
+    for i in range(1,21):
+        n=i**2
+        lis.append(n)
+    print(lis[5:])
+
+q1()
+```
+**参考答案**：
+```python
+def printTuple():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print(tuple(li))
+		
+printTuple()
+```
+
+***
+### 问题2
+编写程序：生成并打印一个元组，元组中的元素值为在给定元组（1,2,3,4,5,6,7,8,9,10）中其值为偶数的元素。
+***
+自己尝试：
+```python
+#提示：使用“ for”迭代元组使用tuple（）从列表中生成一个元组。
+tup1=(1,2,3,4,5,6,7,8,9,10)
+lis1=[]
+for i in tup1:
+    if i%2==0:
+        lis1.append(i)
+print(tuple(lis1))
+```
+**参考答案**：
+```python
+#参考答案
+tp=(1,2,3,4,5,6,7,8,9,10)
+li=list()
+for i in tp:
+	if i%2==0:
+		li.append(i)
+
+tp2=tuple(li)
+print(tp2)
+```
+
+***
+### 问题3
+编写一个程序：该程序可以使用map（）创建一个列表，该列表的元素为1到20之间的数字平方（包含1、20）
+***
+
+
+**参考答案**：
+```python
+squaredNumbers = list(map(lambda x: x**2, range(1,21)))
+print(squaredNumbers)
+```
+总结：
+
+* map() 函数会根据提供的函数对指定序列做映射。  
+第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。  map(function, iterable, ...)
+
+    答案中 range(1,21) 还是相当于一个序列。
+
+* 匿名函数 lambda [arg1 [,arg2,.....argn]]:expression
+
+注意区别：
+```python
+li = [lambda i:i**2 for i in range(1,21)]
+print(type(li))      #<class 'list'>
+print(type(li[0]))   #<class 'function'>
+for i in li:
+    print(i()) 
+```
+输出：
+```python
+<class 'list'>
+<class 'function'>
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+```
+```
+解析：
+li = [lambda :x for x in range(1,21)]
+变成函数：
+li = []
+for x in range(10):
+　　def fun():  #lambda中没有定义参数
+　　　　return x
+　　li.append(fun) #当函数还没有运行的时候，x已经为20了
+```
+***
+### 问题4
+定义一个名为Circle的类，该类以半径作为参数。Circle类具有一种可以计算面积的方法。
+***
+
+**参考答案**：
+```python
+#参考答案
+values = input()
+numbers = [x for x in values.split(",") if int(x)%2!=0]
+print(",".join(numbers))
+```
+
+***
+### 问题5
+定义一个名为Shape的类及其子类Square。Square类具有一个init函数，该函数以长度作为参数。这两个类都有一个Area函数（计算面积公式：长乘以宽）。该函数可以打印Shape的面积默认为0。。
+***
+自己尝试：
+```python
+#要覆盖超类中的方法，我们可以在超类中定义一个具有相同名称的方法。
+class Shape:
+    def __init__(self,length=0,width=0):
+        self.length=length
+        self.width=width
+       
+    def Area(self):
+        self.area=self.length*self.width
+        return  self.area
+
+class Square(Shape):
+    def __init__(self,length=0,width=0):
+        self.length=length
+        self.width=width
+
+s=Square(2.5,3.7)
+s.Area()
+```
+**参考答案**：
+```python
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, l):
+        Shape.__init__(self)
+        self.length = l
+
+    def area(self):
+        return self.length*self.length
+
+aSquare= Square(3)
+print(aSquare.area())
+```
+总结：
+
+* 使子类调用超类`__init__`方法：
+```
+class Subclass(Superclass):
+    def __init__(self):
+        Superclass.__init__(self) 
+```
+```
+class Subclass(Superclass):
+    def __init__(self):
+        super(Subclass, self).__init__()
 ```
