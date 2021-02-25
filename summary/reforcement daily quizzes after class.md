@@ -296,3 +296,183 @@ q.printString()
 
 * class Studen(object),class 后接类名，**类名大写字母开头**，object为类的继承，没有合适的继承类用object类，这是所有类最终会继承的类
 * 类的实例化：bart = student()
+
+## 第二天
+***
+### 问题1
+编写一个程序：接受连续的输入，当最终的输入为空时，程序终止运行，并将输入中的所有字符都大写之后打印。
+
+输入：
+
+Hello world Practice
+
+Hello world Practice
+
+输出：
+
+HELLO WORLD PRACTICE
+
+HELLO WORLD PRACTICE
+***
+自己尝试：
+```python
+#提示：控制台输入
+lis=[]
+while True:
+    str=(input('请输入字符串，输入为空时程序结束运行'))
+    print('字符串大写后：',str.upper())
+    lis.append(str)
+    if len(str) ==0:
+        break
+print('以逗号为间隔符输出总字符串：'+(','.join(lis)))
+```
+**参考答案**：
+```python
+#参考答案 输入3次：aaaaa；bbbbb；空
+lines = []
+while True:
+    s = input()
+    if s:
+        lines.append(s.upper())
+    else:
+        break;
+
+for sentence in lines:
+    print(sentence)
+```
+
+***
+### 问题2
+编写一个程序：查找所有介于1000和3000之间的数字（包括1000和3000），以使该数字的每个数字均为偶数。所获得的数字应以逗号分隔的顺序打印在一行上。
+***
+自己尝试：
+```python
+#提示：包含1000和3000需要注意
+#提示：包含1000和3000需要注意
+lis=[]
+for i in range(1000,3001):
+    if i%2==0 and int(i/10)%2==0 and int(i/100)%2==0 and int(i/1000)%2==0:
+        lis.append(str(i))
+
+print('以逗号为间隔符输出：'+(','.join(lis)))
+```
+**参考答案**：
+```python
+#参考答案
+values = []
+for i in range(1000, 3001):
+    s = str(i)
+    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+        values.append(s)
+print(",".join(values))
+```
+
+***
+### 问题3
+编写一个程序：接收字符串，并返回字符串中字母以及数字的数量。
+
+举例：
+
+输入：
+
+hello world！123
+
+输出：
+
+字母：10
+
+数字：3
+***
+自己尝试：
+```python
+#控制台输入
+str=input('请输入字符串：')
+
+num, char = 0, 0
+for i in str:
+    if i.isdigit():
+        num = num + 1  
+    elif i.isalpha():    
+        char = char + 1
+print('字母总数%d；数字总数%d'%(num,char))
+```
+**参考答案**：
+```python
+s = input()
+d={"DIGITS":0, "LETTERS":0}
+for c in s:
+    if c.isdigit():
+        d["DIGITS"]+=1
+    elif c.isalpha():
+        d["LETTERS"]+=1
+    else:
+        pass
+print("LETTERS", d["LETTERS"])
+print("DIGITS", d["DIGITS"])
+```
+***
+### 问题4
+编写一个程序：输入一个数字列表,返回列表中平方为奇数的项。输入输出用,间隔。
+
+举例:
+
+输入：1,2,3,4,5,6,7,8,9
+
+输出：1,3,5,7,9
+***
+自己尝试：
+```python
+#控制台输入
+lis=[]
+lis1=[]
+str=input('请输入字符串数字列表，以逗号为间隔')
+lis=str.split(",")
+
+for i in lis:
+    if eval(i)*eval(i) %2==1:
+        lis1.append(i)
+print('以逗号为间隔符输出：'+(','.join(lis1)))
+```
+**参考答案**：
+```python
+#参考答案
+values = input()
+numbers = [x for x in values.split(",") if int(x)%2!=0]
+print(",".join(numbers))
+```
+
+***
+### 问题5
+定义一个可以接受两个字符串作为输入的函数，并在控制台中打印最大长度的字符串。如果两个字符串的长度相同，则该函数应逐行打印所有字符串。
+***
+自己尝试：
+```python
+#使用len（）函数获取字符串的长度
+def strcon():
+    str1=input('请输入字符串1')
+    str2=input('请输入字符串2')
+    if len(str1)>len(str2):
+        print('字符串1：',str1)
+    elif len(str1)<len(str2):
+        print('字符串2：',str2)
+    else:
+        print('字符串1：',str1)
+        print('字符串2：',str2)
+
+strcon()
+```
+**参考答案**：
+```python
+def printValue(s1,s2):
+    len1 = len(s1)
+    len2 = len(s2)
+    if len1>len2:
+        print(s1)
+    elif len2>len1:
+        print(s2)
+    else:
+        print(s1)
+        print(s2)
+        
+printValue("one","three")
+```
